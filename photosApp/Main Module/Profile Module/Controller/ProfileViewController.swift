@@ -28,6 +28,9 @@ class ProfileViewController: UIViewController {
     override func loadView() {
         profileView.viewModel = ProfileViewModel(user: user)
         view = profileView
+        if user.uid == currentUser.uid {
+            enableEdit()
+        }
     }
 
     required init?(coder: NSCoder) {
@@ -62,13 +65,10 @@ class ProfileViewController: UIViewController {
         profileView.resizePostCollectionView()
     }
     
-    func enableButtons() {
+    func enableEdit() {
+        profileView.addPicGesRecognizer(target: self, action: #selector(changePic))
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileView.logoutButton)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileView.addPostButton)
-    }
-    
-    func enableChangePicProfile() {
-        profileView.addPicGesRecognizer(target: self, action: #selector(changePic))
     }
     
     private func configureNavItem() {

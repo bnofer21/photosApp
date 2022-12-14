@@ -39,7 +39,7 @@ class ShowPostController: UIViewController {
         super.viewDidLoad()
         setTargets()
         setDelegates()
-        showView.commentField.becomeFirstResponder()
+//        showView.commentField.becomeFirstResponder()
     }
     
     private func setDelegates() {

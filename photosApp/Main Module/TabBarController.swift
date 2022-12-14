@@ -9,26 +9,60 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
+    var upperLineView: UIView!
+    let spacing: CGFloat = 40
+    
     let notificationObserver = NotificationCenter.default
     
     var user: User? {
         didSet {
             guard let user = user else { return }
+            tabBarAppearance()
             configureBarControllers(user: user)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        UITabBar.appearance().barTintColor = .systemBackground
-        tabBar.tintColor = .label
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            self.addTabbarIndicatorView(index: 0, isFirstTime: true)
+        }
+        tabBarAppearance()
         setTargets()
+        delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewDidLayoutSubviews() {
+        tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0.0, vertical: -5.0)
+        tabBar.frame.size.height = tabBar.frame.height+10
+    }
+    
+    private func tabBarAppearance() {
+        UITabBar.transparent()
+        let tabbarBackgroundView = CustomTabBar(frame: tabBar.frame)
+        tabbarBackgroundView.layer.cornerRadius = 25
+        tabbarBackgroundView.backgroundColor = .white
+        tabbarBackgroundView.frame = tabBar.frame
+        view.addSubview(tabbarBackgroundView)
+        view.bringSubviewToFront(tabBar)
+        tabBar.tintColor = .systemPink
+    }
+    
+    private func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false){
+        guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else {
+            return
+        }
+        if !isFirstTime {
+            upperLineView.removeFromSuperview()
+        }
+        upperLineView = UIView(frame: CGRect(x: tabView.frame.minX + spacing, y: tabView.frame.minY + 0.1, width: tabView.frame.size.width - spacing * 2, height: 4))
+        upperLineView.backgroundColor = UIColor.systemPink
+        tabBar.addSubview(upperLineView)
     }
     
     private func setTargets() {
@@ -42,32 +76,23 @@ class TabBarController: UITabBarController {
     }
     
     func configureBarControllers(user: User) {
-        // configure Search
-        let search = createNavController(vc: SearchViewController(currentUser: user))
-        search.navigationBar.scrollEdgeAppearance = search.navigationBar.standardAppearance
-        // configure feed
-        let home = createNavController(vc: HomeViewController(user: user, currentUser: user))
-        home.navigationBar.scrollEdgeAppearance = home.navigationBar.standardAppearance
-        // configure Profile
-        let profileVc = ProfileViewController(user: user, currentUser: user)
-        profileVc.enableButtons()
-        profileVc.enableChangePicProfile()
-        let profile = createNavController(vc: profileVc)
-        profile.navigationBar.scrollEdgeAppearance = profile.navigationBar.standardAppearance
-        // set titles and tabbars
-        viewControllers = [search, home, profile]
-        guard let viewControllers = viewControllers else { return }
-        for i in 0..<viewControllers.count {
-            viewControllers[i].tabBarItem.title = Resources.Bars.allCases[i].rawValue
-            viewControllers[i].tabBarItem.image = UIImage(systemName: Resources.BarImages.allCases[i].rawValue)
+        
+        let search = UINavigationController(rootViewController: SearchViewController(currentUser: user))
+        let home = UINavigationController(rootViewController: HomeViewController(user: user, currentUser: user))
+        let profileVc = UINavigationController(rootViewController: ProfileViewController(user: user, currentUser: user))
+        var vcs = [search, home, profileVc]
+        for i in 0..<vcs.count {
+            vcs[i].navigationBar.scrollEdgeAppearance = vcs[i].navigationBar.standardAppearance
+            vcs[i].tabBarItem.image = UIImage(systemName: Resources.BarImages.allCases[i].rawValue)
         }
-        self.selectedIndex = 1
-    }
-    
-    func createNavController(vc: UIViewController) -> UINavigationController {
-        let nc = UINavigationController(rootViewController: vc)
-        return nc
+        viewControllers = vcs
     }
 
+}
+
+extension TabBarController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        addTabbarIndicatorView(index: self.selectedIndex)
+    }
 }
 

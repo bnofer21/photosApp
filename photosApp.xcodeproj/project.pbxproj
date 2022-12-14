@@ -39,6 +39,8 @@
 		5B62CF01294895DF00468069 /* CommentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62CF00294895DF00468069 /* CommentsModel.swift */; };
 		5B62CF032948A16000468069 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62CF022948A16000468069 /* CommentService.swift */; };
 		5B62CF052948E1C700468069 /* SendCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62CF042948E1C700468069 /* SendCommentModel.swift */; };
+		5B62CF0E294A27E900468069 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62CF0D294A27E900468069 /* CustomTabBar.swift */; };
+		5B62CF10294A36A400468069 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62CF0F294A36A400468069 /* TabBar.swift */; };
 		5BAFEB8B293CB86200BBFA69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAFEB8A293CB86200BBFA69 /* AppDelegate.swift */; };
 		5BAFEB8F293CB86200BBFA69 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAFEB8E293CB86200BBFA69 /* TabBarController.swift */; };
 		5BAFEB94293CB86400BBFA69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BAFEB93293CB86400BBFA69 /* Assets.xcassets */; };
@@ -101,6 +103,8 @@
 		5B62CF00294895DF00468069 /* CommentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsModel.swift; sourceTree = "<group>"; };
 		5B62CF022948A16000468069 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		5B62CF042948E1C700468069 /* SendCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCommentModel.swift; sourceTree = "<group>"; };
+		5B62CF0D294A27E900468069 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		5B62CF0F294A36A400468069 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		5BAFEB87293CB86200BBFA69 /* photosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BAFEB8A293CB86200BBFA69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BAFEB8E293CB86200BBFA69 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 		5BAFEBB7293E2CB300BBFA69 /* Main Module */ = {
 			isa = PBXGroup;
 			children = (
+				5B62CF0D294A27E900468069 /* CustomTabBar.swift */,
 				5BAFEB8E293CB86200BBFA69 /* TabBarController.swift */,
 				5B62CEDA2943A04E00468069 /* Show Post Module */,
 				5B62CEC32941CF3B00468069 /* NewPost Module */,
@@ -452,6 +457,7 @@
 				5B62CED429420F0200468069 /* NSAttributedString.swift */,
 				5B62CEE42943B3DC00468069 /* LikeDelegate.swift */,
 				5B62CEF62947493A00468069 /* LoaderButton.swift */,
+				5B62CF0F294A36A400468069 /* TabBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -586,6 +592,7 @@
 				5B62CEF32945DA6A00468069 /* SearchView.swift in Sources */,
 				5B62CEFD2948943F00468069 /* CommentCell.swift in Sources */,
 				5B62CEC22940B5AD00468069 /* LikeButton.swift in Sources */,
+				5B62CF0E294A27E900468069 /* CustomTabBar.swift in Sources */,
 				5BAFEBB3293DE9DD00BBFA69 /* PostCell.swift in Sources */,
 				5BAFEBAF293D305B00BBFA69 /* UIView.swift in Sources */,
 				5B21EFBE29406A48008EC0AD /* HomeViewModel.swift in Sources */,
@@ -604,6 +611,7 @@
 				5BAFEBE9293F5B1000BBFA69 /* UserService.swift in Sources */,
 				5BAFEBB1293DE8F000BBFA69 /* PostsCollectionVIew.swift in Sources */,
 				5B62CECF2941D0D800468069 /* NewPostViewModel.swift in Sources */,
+				5B62CF10294A36A400468069 /* TabBar.swift in Sources */,
 				5B62CECD2941D08D00468069 /* NewPostView.swift in Sources */,
 				5B62CEE12943A57200468069 /* ShowPostView.swift in Sources */,
 				5BAFEBAD293D2D8C00BBFA69 /* UserModel.swift in Sources */,

@@ -17,7 +17,6 @@ class SearchView: UIView {
         tf.placeholder = "Search profile..."
         tf.layer.masksToBounds = true
         tf.layer.borderWidth = 1
-        tf.layer.cornerRadius = 10
         tf.layer.borderColor = UIColor.gray.cgColor
         tf.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: tf.frame.height))
         tf.leftViewMode = .always
@@ -34,6 +33,10 @@ class SearchView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func setNeedsLayout() {
+        searchField.layer.cornerRadius = searchField.frame.height/2
     }
     
     private func setupView() {
