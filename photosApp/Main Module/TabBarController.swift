@@ -10,7 +10,7 @@ import UIKit
 class TabBarController: UITabBarController {
     
     var upperLineView: UIView!
-    let spacing: CGFloat = 40
+    let spacing: CGFloat = 39
     
     let notificationObserver = NotificationCenter.default
     
