@@ -92,7 +92,9 @@ class ProfileViewController: UIViewController {
     func fetchPosts() {
         PostService.shared.fetchUserPosts(forUser: user.uid) { posts in
             self.posts = posts
-            self.profileView.postCollection.reloadData()
+            self.profileView.postCollection.performBatchUpdates {
+                self.profileView.postCollection.insertItems(at: [IndexPath.init(row: 0, section: 0)])
+            }
         }
     }
     
@@ -122,10 +124,8 @@ class ProfileViewController: UIViewController {
     }
     
     func presentNewPost(user: User, postImage: UIImage) {
-        DispatchQueue.main.async {
-            let vc = NewPostViewController(user: user, newPostImage: postImage)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let vc = NewPostViewController(user: user, newPostImage: postImage)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // move uploadProfilePicture to ImageUploader

@@ -72,18 +72,12 @@ class HomeCell: UICollectionViewCell {
         return pic
     }()
     
-    var commentTextField: UITextField = {
-        let tf = UITextField()
-        tf.placeholder = "Write your comment"
-        tf.font = tf.font?.withSize(12)
-        tf.layer.masksToBounds = true
-        tf.layer.cornerRadius = 10
-        tf.layer.borderColor = UIColor.lightGray.cgColor
-        tf.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: tf.frame.height))
-        tf.leftViewMode = .always
-        tf.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: tf.frame.height))
-        tf.rightViewMode = .always
-        return tf
+    var commentLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Write your comment..."
+        label.font = label.font.withSize(12)
+        label.textColor = .lightGray
+        return label
     }()
     
     var separator: UIView = {
@@ -116,7 +110,7 @@ class HomeCell: UICollectionViewCell {
         addView(separator)
         addView(likesCount)
         addView(commentatorProfilePic)
-        addView(commentTextField)
+        addView(commentLabel)
         addView(postCaption)
         createSeparators()
     }
@@ -155,8 +149,8 @@ class HomeCell: UICollectionViewCell {
         ownerNameLabel.addGestureRecognizer(tapProf)
         ownerNameLabel.isUserInteractionEnabled = true
         let tapPost = UITapGestureRecognizer(target: self, action: #selector(initDelegatePost))
-        postCaption.addGestureRecognizer(tapPost)
-        postCaption.isUserInteractionEnabled = true
+        commentLabel.addGestureRecognizer(tapPost)
+        commentLabel.isUserInteractionEnabled = true
     }
     
     @objc func initDelegateLike() {
@@ -217,10 +211,10 @@ class HomeCell: UICollectionViewCell {
             commentatorProfilePic.widthAnchor.constraint(equalToConstant: 25),
             commentatorProfilePic.heightAnchor.constraint(equalToConstant: 25),
             
-            commentTextField.centerYAnchor.constraint(equalTo: commentatorProfilePic.centerYAnchor),
-            commentTextField.leadingAnchor.constraint(equalTo: commentatorProfilePic.trailingAnchor, constant: 0),
-            commentTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            commentTextField.heightAnchor.constraint(equalTo: commentatorProfilePic.heightAnchor),
+            commentLabel.centerYAnchor.constraint(equalTo: commentatorProfilePic.centerYAnchor),
+            commentLabel.leadingAnchor.constraint(equalTo: commentatorProfilePic.trailingAnchor, constant: 5),
+            commentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            commentLabel.heightAnchor.constraint(equalTo: commentatorProfilePic.heightAnchor),
             
             separator.centerXAnchor.constraint(equalTo: centerXAnchor),
             separator.heightAnchor.constraint(equalToConstant: 1),
