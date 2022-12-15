@@ -5,7 +5,7 @@
 //  Created by Юрий on 09.12.2022.
 //
 
-import Foundation
+import UIKit
 
 struct ShowViewModel {
     

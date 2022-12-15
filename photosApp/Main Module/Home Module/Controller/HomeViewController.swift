@@ -31,25 +31,25 @@ class HomeViewController: UIViewController {
         view = homeView
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTitle()
         setDelegateView()
         fetchPosts()
         setNotificationObserver()
+        navBarAppearance()
     }
     
     private func navBarAppearance() {
-        let navBar = CustomNavBar()
-        self.navigationController?.navigationBar.addSubview(navBar)
+        navigationItem.title = Resources.Bars.Home.rawValue
+//        navigationController?.navigationBar.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+//        navigationController?.navigationBar.layer.cornerRadius = 20
+//        navigationController?.navigationBar.clipsToBounds = true
+//        navigationController?.navigationBar.backgroundColor = .systemPink
     }
     
     private func setNotificationObserver() {
         notification.addObserver(self, selector: #selector(fetchFeed), name: Notification.Name("FetchFeed"), object: nil)
-    }
-    
-    private func setTitle() {
-        navigationItem.title = Resources.Bars.Home.rawValue
     }
     
     private func setDelegateView() {
@@ -159,5 +159,6 @@ extension HomeViewController: ObserverPostCaption {
         }
     }
 }
+
 
 

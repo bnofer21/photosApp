@@ -80,12 +80,6 @@ class HomeCell: UICollectionViewCell {
         return label
     }()
     
-    var separator: UIView = {
-        let view = UIView()
-        view.backgroundColor = .lightGray
-        return view
-    }()
-    
     override func layoutSubviews() {
         ownerPicProfile.layer.cornerRadius = ownerPicProfile.frame.height/2
         commentatorProfilePic.layer.cornerRadius = commentatorProfilePic.frame.height/2
@@ -107,7 +101,6 @@ class HomeCell: UICollectionViewCell {
         addView(ownerNameLabel)
         addView(postImage)
         addView(likeButton)
-        addView(separator)
         addView(likesCount)
         addView(commentatorProfilePic)
         addView(commentLabel)
@@ -156,6 +149,13 @@ class HomeCell: UICollectionViewCell {
     @objc func initDelegateLike() {
         if let post = viewModel?.post, let delegate = delegate {
             delegate.homePostCell(cell: self, didLike: post)
+        }
+        UIView.animate(withDuration: 0.1, animations: {
+            self.likeButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        }) { _ in
+            UIView.animate(withDuration: 0.1) {
+                self.likeButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
         }
     }
     
@@ -216,10 +216,6 @@ class HomeCell: UICollectionViewCell {
             commentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             commentLabel.heightAnchor.constraint(equalTo: commentatorProfilePic.heightAnchor),
             
-            separator.centerXAnchor.constraint(equalTo: centerXAnchor),
-            separator.heightAnchor.constraint(equalToConstant: 1),
-            separator.widthAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.95),
-            separator.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }

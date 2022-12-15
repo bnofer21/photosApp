@@ -10,7 +10,7 @@ import UIKit
 class TabBarController: UITabBarController {
     
     var upperLineView: UIView!
-    let spacing: CGFloat = 40
+    let spacing: CGFloat = 15
     
     let notificationObserver = NotificationCenter.default
     
@@ -54,12 +54,7 @@ class TabBarController: UITabBarController {
     }
     
     private func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false){
-        guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else {
-            return
-        }
-        if !isFirstTime {
-            upperLineView.removeFromSuperview()
-        }
+        guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else { return }
         upperLineView = UIView(frame: CGRect(x: tabView.frame.minX + spacing, y: tabView.frame.minY + 0.1, width: tabView.frame.size.width - spacing * 2, height: 4))
         upperLineView.backgroundColor = UIColor.systemPink
         tabBar.addSubview(upperLineView)
@@ -84,7 +79,6 @@ class TabBarController: UITabBarController {
             vcs[i].navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
             vcs[i].navigationController?.navigationBar.shadowImage = UIImage()
             vcs[i].navigationController?.navigationBar.layoutIfNeeded()
-            vcs[i].navigationController?.navigationBar
             vcs[i].tabBarItem.image = UIImage(systemName: Resources.BarImages.allCases[i].rawValue)
         }
         viewControllers = vcs
@@ -94,7 +88,12 @@ class TabBarController: UITabBarController {
 
 extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        addTabbarIndicatorView(index: self.selectedIndex)
+        guard let tabView = tabBar.items?[selectedIndex].value(forKey: "view") as? UIView else { return }
+        let x = tabView.frame.minX - 0.1
+        let y = tabView.frame.minY + 0.1
+        UIView.animate(withDuration: 0.2) {
+            self.upperLineView.transform = CGAffineTransform(translationX: x, y: y)
+        }
     }
 }
 

@@ -11,6 +11,8 @@ class LikeButton: UIButton {
     
     let conf = UIImage.SymbolConfiguration(pointSize: 18, weight: .regular, scale: .large)
     
+//    override var isSelected: Bool
+    
     var isLiked = false {
         willSet {
             if newValue {
