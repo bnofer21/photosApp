@@ -24,7 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // VCs in app
         let tab = TabBarController()
         let navController = UINavigationController(rootViewController: tab)
-        navController.navigationBar.scrollEdgeAppearance = navController.navigationBar.standardAppearance
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        UINavigationBar.appearance().standardAppearance = appearance
+        
         
         // Setting app's window
         self.window = UIWindow(frame: UIScreen.main.bounds)

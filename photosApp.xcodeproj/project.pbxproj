@@ -41,6 +41,7 @@
 		5B62CF052948E1C700468069 /* SendCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62CF042948E1C700468069 /* SendCommentModel.swift */; };
 		5B62CF0E294A27E900468069 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62CF0D294A27E900468069 /* CustomTabBar.swift */; };
 		5B62CF10294A36A400468069 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62CF0F294A36A400468069 /* TabBar.swift */; };
+		5B62CF18294B1FF400468069 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62CF17294B1FF400468069 /* CustomNavBar.swift */; };
 		5BAFEB8B293CB86200BBFA69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAFEB8A293CB86200BBFA69 /* AppDelegate.swift */; };
 		5BAFEB8F293CB86200BBFA69 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAFEB8E293CB86200BBFA69 /* TabBarController.swift */; };
 		5BAFEB94293CB86400BBFA69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BAFEB93293CB86400BBFA69 /* Assets.xcassets */; };
@@ -105,6 +106,7 @@
 		5B62CF042948E1C700468069 /* SendCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCommentModel.swift; sourceTree = "<group>"; };
 		5B62CF0D294A27E900468069 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		5B62CF0F294A36A400468069 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		5B62CF17294B1FF400468069 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		5BAFEB87293CB86200BBFA69 /* photosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BAFEB8A293CB86200BBFA69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BAFEB8E293CB86200BBFA69 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				5BAFEBBE293E2D8700BBFA69 /* Search Module */,
 				5BAFEBBD293E2D7400BBFA69 /* Home Module */,
 				5BAFEBB8293E2CBD00BBFA69 /* Profile Module */,
+				5B62CF17294B1FF400468069 /* CustomNavBar.swift */,
 			);
 			path = "Main Module";
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				5B62CEF92947CAB900468069 /* FollowButton.swift in Sources */,
 				5B21EFB7293FD119008EC0AD /* PostService.swift in Sources */,
 				5BAFEBC9293E31B200BBFA69 /* Authentication.swift in Sources */,
+				5B62CF18294B1FF400468069 /* CustomNavBar.swift in Sources */,
 				5BAFEBE3293E66C300BBFA69 /* Alerts.swift in Sources */,
 				5BAFEBCB293E32E100BBFA69 /* DataTextField.swift in Sources */,
 				5BAFEBC6293E2EE700BBFA69 /* AuthViewController.swift in Sources */,
@@ -771,8 +775,8 @@
 				INFOPLIST_FILE = "photosApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -799,8 +803,8 @@
 				INFOPLIST_FILE = "photosApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

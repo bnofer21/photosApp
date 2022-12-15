@@ -10,7 +10,7 @@ import UIKit
 class TabBarController: UITabBarController {
     
     var upperLineView: UIView!
-    let spacing: CGFloat = 41
+    let spacing: CGFloat = 40
     
     let notificationObserver = NotificationCenter.default
     
@@ -76,13 +76,15 @@ class TabBarController: UITabBarController {
     }
     
     func configureBarControllers(user: User) {
-        
         let search = UINavigationController(rootViewController: SearchViewController(currentUser: user))
         let home = UINavigationController(rootViewController: HomeViewController(user: user, currentUser: user))
         let profileVc = UINavigationController(rootViewController: ProfileViewController(user: user, currentUser: user))
         var vcs = [search, home, profileVc]
         for i in 0..<vcs.count {
-            vcs[i].navigationBar.scrollEdgeAppearance = vcs[i].navigationBar.standardAppearance
+            vcs[i].navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            vcs[i].navigationController?.navigationBar.shadowImage = UIImage()
+            vcs[i].navigationController?.navigationBar.layoutIfNeeded()
+            vcs[i].navigationController?.navigationBar
             vcs[i].tabBarItem.image = UIImage(systemName: Resources.BarImages.allCases[i].rawValue)
         }
         viewControllers = vcs

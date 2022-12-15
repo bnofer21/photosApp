@@ -39,6 +39,11 @@ class HomeViewController: UIViewController {
         setNotificationObserver()
     }
     
+    private func navBarAppearance() {
+        let navBar = CustomNavBar()
+        self.navigationController?.navigationBar.addSubview(navBar)
+    }
+    
     private func setNotificationObserver() {
         notification.addObserver(self, selector: #selector(fetchFeed), name: Notification.Name("FetchFeed"), object: nil)
     }
