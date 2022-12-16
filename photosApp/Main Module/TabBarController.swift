@@ -27,9 +27,6 @@ class TabBarController: UITabBarController {
         tabBarAppearance()
         setTargets()
         delegate = self
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.7) {
-            self.addTabbarIndicatorView(index: 0)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +80,9 @@ class TabBarController: UITabBarController {
             vcs[i].tabBarItem.image = UIImage(systemName: Resources.BarImages.allCases[i].rawValue)
         }
         viewControllers = vcs
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            self.addTabbarIndicatorView(index: 0)
+        }
     }
 
 }

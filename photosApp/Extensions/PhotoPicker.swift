@@ -7,13 +7,13 @@
 
 import UIKit
 
-extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension ProfileViewController: UIImagePickerControllerDelegate {
     
     func presentImagePicker() {
         
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
+//            imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = .photoLibrary
             present(imagePicker, animated: true)

@@ -114,11 +114,6 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func followUser(sender: FollowButton) {
-        UserService.shared.fetchCurrentUser { currentUser in
-            UserService.shared.followUser(currentUser: currentUser, toFollow: self.user) {
-                self.notification.post(name: NSNotification.Name(rawValue: "FetchFeed"), object: nil)
-            }
-        }
         guard let didFollow = user.didFollow else { return }
         if didFollow {
             user.followers -= 1
@@ -127,6 +122,10 @@ class ProfileViewController: UIViewController {
         }
         user.didFollow?.toggle()
         loadView()
+            UserService.shared.followUser(currentUser: currentUser, toFollow: self.user) {
+                self.notification.post(name: NSNotification.Name(rawValue: "FetchFeed"), object: nil)
+        }
+        
     }
     
     func presentNewPost(user: User, postImage: UIImage) {
