@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension ProfileViewController: UIImagePickerControllerDelegate {
     
     func presentImagePicker() {
         

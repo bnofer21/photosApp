@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B1E0F1F294CB69A002430A0 /* CustomIV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E0F1E294CB69A002430A0 /* CustomIV.swift */; };
+		5B1E0F22294D0122002430A0 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E0F21294D0122002430A0 /* Transition.swift */; };
 		5B21EFAD293F88FF008EC0AD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EFAC293F88FF008EC0AD /* ProfileView.swift */; };
 		5B21EFAF293FABAD008EC0AD /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EFAE293FABAD008EC0AD /* PhotoPicker.swift */; };
 		5B21EFB1293FC107008EC0AD /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EFB0293FC107008EC0AD /* PostModel.swift */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		5B1E0F1E294CB69A002430A0 /* CustomIV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomIV.swift; sourceTree = "<group>"; };
+		5B1E0F21294D0122002430A0 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		5B21EFAC293F88FF008EC0AD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5B21EFAE293FABAD008EC0AD /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		5B21EFB0293FC107008EC0AD /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B1E0F20294D0110002430A0 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				5B1E0F21294D0122002430A0 /* Transition.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
 		5B21EFB8294069B4008EC0AD /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +383,7 @@
 				5BAFEBBE293E2D8700BBFA69 /* Search Module */,
 				5BAFEBBD293E2D7400BBFA69 /* Home Module */,
 				5BAFEBB8293E2CBD00BBFA69 /* Profile Module */,
+				5B1E0F20294D0110002430A0 /* Transition */,
 			);
 			path = "Main Module";
 			sourceTree = "<group>";
@@ -595,6 +606,7 @@
 				5B62CF0E294A27E900468069 /* CustomTabBar.swift in Sources */,
 				5BAFEBB3293DE9DD00BBFA69 /* PostCell.swift in Sources */,
 				5BAFEBAF293D305B00BBFA69 /* UIView.swift in Sources */,
+				5B1E0F22294D0122002430A0 /* Transition.swift in Sources */,
 				5B21EFBE29406A48008EC0AD /* HomeViewModel.swift in Sources */,
 				5BAFEBA7293CCEE200BBFA69 /* SearchViewController.swift in Sources */,
 				5B62CEFB294893BE00468069 /* CommentView.swift in Sources */,

@@ -51,9 +51,15 @@ class CommentCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setNeedsLayout() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         userProfilePic.layer.cornerRadius = userProfilePic.frame.height/2
     }
+    
+//    override func setNeedsLayout() {
+//        super.setNeedsLayout()
+//        
+//    }
     
     private func setupView() {
         addView(usernameLabel)
