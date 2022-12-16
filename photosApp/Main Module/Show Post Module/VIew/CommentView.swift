@@ -20,7 +20,6 @@ class CommentView: UITableView {
     }
     
     private func configureTableView() {
-//        contentSize = CGSizeMake(frame.width, <#T##height: CGFloat##CGFloat#>)
     }
     
     private func registerCell() {

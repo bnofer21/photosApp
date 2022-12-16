@@ -92,8 +92,12 @@ class ProfileViewController: UIViewController {
     func fetchPosts() {
         PostService.shared.fetchUserPosts(forUser: user.uid) { posts in
             self.posts = posts
-            self.profileView.postCollection.performBatchUpdates {
-                self.profileView.postCollection.insertItems(at: [IndexPath.init(row: 0, section: 0)])
+            if posts.count == 0 {
+                self.profileView.postCollection.reloadData()
+            } else {
+                self.profileView.postCollection.performBatchUpdates {
+                    self.profileView.postCollection.insertItems(at: [IndexPath.init(row: 0, section: 0)])
+                }
             }
         }
     }
@@ -106,12 +110,14 @@ class ProfileViewController: UIViewController {
         sender.showLoading()
         upload = .postPic
         presentImagePicker()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: sender.hideLoading)
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.2, execute: sender.hideLoading)
     }
     
     @objc func followUser(sender: FollowButton) {
         UserService.shared.fetchCurrentUser { currentUser in
-            UserService.shared.followUser(currentUser: currentUser, toFollow: self.user)
+            UserService.shared.followUser(currentUser: currentUser, toFollow: self.user) {
+                self.notification.post(name: NSNotification.Name(rawValue: "FetchFeed"), object: nil)
+            }
         }
         guard let didFollow = user.didFollow else { return }
         if didFollow {

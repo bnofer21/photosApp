@@ -36,6 +36,7 @@ class SearchView: UIView {
     }
     
     override func setNeedsLayout() {
+        super.setNeedsLayout()
         searchField.layer.cornerRadius = searchField.frame.height/2
     }
     

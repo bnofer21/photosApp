@@ -17,8 +17,8 @@ class CommentCell: UITableViewCell {
         }
     }
     
-    var userProfilePic: UIImageView = {
-        let image = UIImageView()
+    var userProfilePic: CustomIV = {
+        let image = CustomIV()
         image.image = UIImage(named: "noImage")
         image.contentMode = .scaleToFill
         image.clipsToBounds = true
@@ -64,7 +64,7 @@ class CommentCell: UITableViewCell {
     private func configure() {
         guard let vm = commentViewModel else { return }
         usernameLabel.text = vm.username
-        userProfilePic.imageFromServerURL(vm.userProfilePic)
+        userProfilePic.loadImage(urlStr: vm.userProfilePic)
         commentLabel.text = vm.commentText
     }
     

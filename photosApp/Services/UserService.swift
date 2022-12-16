@@ -76,22 +76,22 @@ struct UserService {
         }
     }
     
-    func followUser(currentUser: User, toFollow: User) {
+    func followUser(currentUser: User, toFollow: User, completion: @escaping()->Void) {
         let ref = Firestore.firestore().collection("Users")
         
         checkIfUserFollowed(currentUser: currentUser, follow: toFollow) { state in
             if state {
-                ref.document(currentUser.uid).updateData(["following" : currentUser.following-1])
+                ref.document(currentUser.uid).updateData(["following" : currentUser.following])
                 ref.document(toFollow.uid).updateData(["followers" : toFollow.followers])
                 ref.document(currentUser.uid).collection("Following").document(toFollow.uid).delete()
                 ref.document(toFollow.uid).collection("Followers").document(currentUser.uid).delete()
             } else {
                 ref.document(currentUser.uid).collection("Following").document(toFollow.uid).setData([:])
                 ref.document(toFollow.uid).collection("Followers").document(currentUser.uid).setData([:])
-                ref.document(currentUser.uid).updateData(["following" : currentUser.following+1])
+                ref.document(currentUser.uid).updateData(["following" : currentUser.following])
                 ref.document(toFollow.uid).updateData(["followers" : toFollow.followers])
             }
-            // error bad instruction
+            completion()
         }
     }
     

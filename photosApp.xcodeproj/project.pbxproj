@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B1E0F1F294CB69A002430A0 /* CustomIV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E0F1E294CB69A002430A0 /* CustomIV.swift */; };
 		5B21EFAD293F88FF008EC0AD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EFAC293F88FF008EC0AD /* ProfileView.swift */; };
 		5B21EFAF293FABAD008EC0AD /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EFAE293FABAD008EC0AD /* PhotoPicker.swift */; };
 		5B21EFB1293FC107008EC0AD /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B21EFB0293FC107008EC0AD /* PostModel.swift */; };
@@ -65,13 +66,13 @@
 		5BAFEBDA293E587200BBFA69 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5BAFEBD9293E587200BBFA69 /* FirebaseFirestore */; };
 		5BAFEBDC293E587300BBFA69 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BAFEBDB293E587300BBFA69 /* FirebaseFirestoreSwift */; };
 		5BAFEBDE293E587300BBFA69 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5BAFEBDD293E587300BBFA69 /* FirebaseStorage */; };
-		5BAFEBE0293E63CC00BBFA69 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAFEBDF293E63CC00BBFA69 /* UIImageView.swift */; };
 		5BAFEBE3293E66C300BBFA69 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAFEBE2293E66C300BBFA69 /* Alerts.swift */; };
 		5BAFEBE7293F558500BBFA69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BAFEBE6293F558500BBFA69 /* GoogleService-Info.plist */; };
 		5BAFEBE9293F5B1000BBFA69 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAFEBE8293F5B1000BBFA69 /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B1E0F1E294CB69A002430A0 /* CustomIV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomIV.swift; sourceTree = "<group>"; };
 		5B21EFAC293F88FF008EC0AD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5B21EFAE293FABAD008EC0AD /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		5B21EFB0293FC107008EC0AD /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
@@ -125,7 +126,6 @@
 		5BAFEBC8293E31B200BBFA69 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		5BAFEBCA293E32E100BBFA69 /* DataTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTextField.swift; sourceTree = "<group>"; };
 		5BAFEBCC293E401D00BBFA69 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
-		5BAFEBDF293E63CC00BBFA69 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		5BAFEBE2293E66C300BBFA69 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		5BAFEBE6293F558500BBFA69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5BAFEBE8293F5B1000BBFA69 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -450,8 +450,8 @@
 		5BAFEBC0293E2DC900BBFA69 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5B1E0F1E294CB69A002430A0 /* CustomIV.swift */,
 				5BAFEBAE293D305B00BBFA69 /* UIView.swift */,
-				5BAFEBDF293E63CC00BBFA69 /* UIImageView.swift */,
 				5BAFEBE2293E66C300BBFA69 /* Alerts.swift */,
 				5B21EFAE293FABAD008EC0AD /* PhotoPicker.swift */,
 				5B62CED429420F0200468069 /* NSAttributedString.swift */,
@@ -601,7 +601,6 @@
 				5BAFEBAB293D2CD800BBFA69 /* ProfileViewModel.swift in Sources */,
 				5B62CEE52943B3DC00468069 /* LikeDelegate.swift in Sources */,
 				5BAFEB8F293CB86200BBFA69 /* TabBarController.swift in Sources */,
-				5BAFEBE0293E63CC00BBFA69 /* UIImageView.swift in Sources */,
 				5B62CECB2941CF9F00468069 /* NewPostModel.swift in Sources */,
 				5B21EFAD293F88FF008EC0AD /* ProfileView.swift in Sources */,
 				5B21EFBB294069E4008EC0AD /* HomeView.swift in Sources */,
@@ -627,6 +626,7 @@
 				5BAFEBCD293E401D00BBFA69 /* LoginButton.swift in Sources */,
 				5BAFEBA5293CCE9800BBFA69 /* HomeViewController.swift in Sources */,
 				5B21EFB1293FC107008EC0AD /* PostModel.swift in Sources */,
+				5B1E0F1F294CB69A002430A0 /* CustomIV.swift in Sources */,
 				5B62CEC92941CF6200468069 /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

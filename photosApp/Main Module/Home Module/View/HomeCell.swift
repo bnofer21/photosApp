@@ -22,8 +22,8 @@ class HomeCell: UICollectionViewCell {
     }
 
     var separators = [UIView]()
-    var ownerPicProfile: UIImageView = {
-        let pic = UIImageView()
+    var ownerPicProfile: CustomIV = {
+        let pic = CustomIV()
         pic.image = UIImage(named: "noImage")
         pic.contentMode = .scaleToFill
         pic.clipsToBounds = true
@@ -39,8 +39,8 @@ class HomeCell: UICollectionViewCell {
         return label
     }()
     
-    var postImage: UIImageView = {
-        let image = UIImageView()
+    var postImage: CustomIV = {
+        let image = CustomIV()
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
         image.backgroundColor = .lightGray
@@ -61,8 +61,8 @@ class HomeCell: UICollectionViewCell {
         return label
     }()
     
-    var commentatorProfilePic: UIImageView = {
-        let pic = UIImageView()
+    var commentatorProfilePic: CustomIV = {
+        let pic = CustomIV()
         pic.image = UIImage(named: "noImage")
         pic.contentMode = .scaleToFill
         pic.clipsToBounds = true
@@ -81,6 +81,7 @@ class HomeCell: UICollectionViewCell {
     }()
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         ownerPicProfile.layer.cornerRadius = ownerPicProfile.frame.height/2
         commentatorProfilePic.layer.cornerRadius = commentatorProfilePic.frame.height/2
     }
@@ -120,9 +121,9 @@ class HomeCell: UICollectionViewCell {
     
     private func configure() {
         guard let viewModel = viewModel else { return }
-        ownerPicProfile.imageFromServerURL(viewModel.ownerPicProfileUrl)
+        ownerPicProfile.loadImage(urlStr: viewModel.ownerPicProfileUrl)
         ownerNameLabel.text = viewModel.ownerName
-        postImage.imageFromServerURL(viewModel.postImageUrl)
+        postImage.loadImage(urlStr: viewModel.postImageUrl)
         if viewModel.post.likes == 0 {
             likesCount.isHidden = true
         } else {
@@ -133,7 +134,7 @@ class HomeCell: UICollectionViewCell {
         likeButton.isLiked = viewModel.post.didlike
         postCaption.attributedText = rangeAttributedString(string: "\(viewModel.ownerName) \(viewModel.caption)", nonBoldRange: NSMakeRange(viewModel.ownerName.count, viewModel.caption.count+1))
         guard let url = viewModel.user.imageUrl else { return }
-        commentatorProfilePic.imageFromServerURL(url)
+        commentatorProfilePic.loadImage(urlStr: url)
     }
     
     private func setTargets() {

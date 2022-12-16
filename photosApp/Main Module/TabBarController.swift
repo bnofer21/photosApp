@@ -24,12 +24,12 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-            self.addTabbarIndicatorView(index: 0, isFirstTime: true)
-        }
         tabBarAppearance()
         setTargets()
         delegate = self
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.7) {
+            self.addTabbarIndicatorView(index: 0)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +38,7 @@ class TabBarController: UITabBarController {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0.0, vertical: -5.0)
         tabBar.frame.size.height = tabBar.frame.height+10
     }
@@ -53,7 +54,7 @@ class TabBarController: UITabBarController {
         tabBar.tintColor = .systemPink
     }
     
-    private func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false){
+    private func addTabbarIndicatorView(index: Int){
         guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else { return }
         upperLineView = UIView(frame: CGRect(x: tabView.frame.minX + spacing, y: tabView.frame.minY + 0.1, width: tabView.frame.size.width - spacing * 2, height: 4))
         upperLineView.backgroundColor = UIColor.systemPink

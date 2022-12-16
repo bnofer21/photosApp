@@ -36,8 +36,8 @@ class ProfileView: UIView {
         return sv
     }()
     
-    let profileImage: UIImageView = {
-        let imageView = UIImageView()
+    let profileImage: CustomIV = {
+        let imageView = CustomIV()
         imageView.image = UIImage(named: "noImage")
         imageView.backgroundColor = .lightGray
         imageView.contentMode = .scaleAspectFill
@@ -80,7 +80,7 @@ class ProfileView: UIView {
     
     private func configure() {
         guard let viewModel = viewModel else { return }
-        profileImage.imageFromServerURL(viewModel.profileImageUrl)
+        profileImage.loadImage(urlStr: viewModel.profileImageUrl)
         for stat in statsArray {
             if stat.text == Resources.Stats.posts.rawValue {
                 stat.text?.append("\(viewModel.posts)")

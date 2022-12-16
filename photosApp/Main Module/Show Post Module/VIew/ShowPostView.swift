@@ -17,8 +17,8 @@ class ShowPostView: UIView {
 
     var commentView = CommentView()
     
-    var commentatorProfilePic: UIImageView = {
-        let image = UIImageView()
+    var commentatorProfilePic: CustomIV = {
+        let image = CustomIV()
         image.image = UIImage(named: "noImage")
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
@@ -40,8 +40,8 @@ class ShowPostView: UIView {
         return tf
     }()
     
-    var userProfilePic: UIImageView = {
-        let pic = UIImageView()
+    var userProfilePic: CustomIV = {
+        let pic = CustomIV()
         pic.image = UIImage(named: "noImage")
         pic.contentMode = .scaleAspectFit
         pic.clipsToBounds = true
@@ -69,8 +69,8 @@ class ShowPostView: UIView {
     
     var separators = [UIView]()
     
-    var postImageView: UIImageView = {
-        let image = UIImageView()
+    var postImageView: CustomIV = {
+        let image = CustomIV()
         image.clipsToBounds = true
         image.contentMode = .scaleToFill
         image.backgroundColor = .lightGray
@@ -157,9 +157,9 @@ class ShowPostView: UIView {
     
     private func configure() {
         guard let viewModel = viewModel else { return }
-        userProfilePic.imageFromServerURL(viewModel.postOwnerPicProfile)
+        userProfilePic.loadImage(urlStr: viewModel.postOwnerPicProfile)
         userNameLabel.text = viewModel.postOwnerName
-        postImageView.imageFromServerURL(viewModel.postImageUrl)
+        postImageView.loadImage(urlStr: viewModel.postImageUrl)
         userNameForCaptionLabel.text = viewModel.postOwnerName
         print(viewModel.postOwnerName)
         postCaptionTextField.text = viewModel.captionPost
@@ -170,7 +170,7 @@ class ShowPostView: UIView {
             likesCount.text = "liked \(viewModel.likes)"
         }
         likeButton.isLiked = viewModel.post.didlike
-        commentatorProfilePic.imageFromServerURL(viewModel.currentUserProfilePic)
+        commentatorProfilePic.loadImage(urlStr: viewModel.currentUserProfilePic)
         guard viewModel.post.ownerUid == Authentication.shared.currentUserUid() else { return }
         deleteButton.isHidden = false
     }

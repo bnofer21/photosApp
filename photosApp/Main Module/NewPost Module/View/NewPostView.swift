@@ -22,8 +22,8 @@ class NewPostView: UIView {
         return button
     }()
     
-    var userProfilePic: UIImageView = {
-        let pic = UIImageView()
+    var userProfilePic: CustomIV = {
+        let pic = CustomIV()
         pic.image = UIImage(named: "noImage")
         pic.contentMode = .scaleAspectFit
         pic.clipsToBounds = true
@@ -41,8 +41,8 @@ class NewPostView: UIView {
     
     var separators = [UIView]()
     
-    var newPostImageView: UIImageView = {
-        let image = UIImageView()
+    var newPostImageView: CustomIV = {
+        let image = CustomIV()
         image.clipsToBounds = true
         image.contentMode = .scaleToFill
         image.backgroundColor = .lightGray
@@ -100,7 +100,7 @@ class NewPostView: UIView {
     
     private func configure() {
         guard let viewModel = viewModel else { return }
-        userProfilePic.imageFromServerURL(viewModel.userProfilePic)
+        userProfilePic.loadImage(urlStr: viewModel.userProfilePic)
         userNameLabel.text = viewModel.userName
         newPostImageView.image = viewModel.newPostImage
         userNameForCaptionLabel.text = viewModel.userName

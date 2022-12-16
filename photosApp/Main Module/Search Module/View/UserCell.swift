@@ -17,8 +17,8 @@ class UserCell: UITableViewCell {
         }
     }
     
-    var picProfile: UIImageView = {
-        let pic = UIImageView()
+    var picProfile: CustomIV = {
+        let pic = CustomIV()
         pic.image = UIImage(named: "noImage")
         pic.contentMode = .scaleToFill
         pic.clipsToBounds = true
@@ -63,7 +63,7 @@ class UserCell: UITableViewCell {
     
     private func configure() {
         guard let viewModel = viewModel else { return }
-        picProfile.imageFromServerURL(viewModel.profilePicUrl)
+        picProfile.loadImage(urlStr: viewModel.profilePicUrl)
         userNameLabel.text = viewModel.userName
         postsCount.text = "Posts: \(viewModel.posts)"
     }

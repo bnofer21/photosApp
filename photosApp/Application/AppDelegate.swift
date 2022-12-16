@@ -26,10 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navController = UINavigationController(rootViewController: tab)
         
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .systemPink
-        UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
         
         
         // Setting app's window

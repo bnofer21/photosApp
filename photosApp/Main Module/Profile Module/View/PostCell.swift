@@ -40,8 +40,8 @@ class PostCell: UICollectionViewCell {
     
     static let id = "PostCell"
     
-    var postImage: UIImageView = {
-        let image = UIImageView()
+    var postImage: CustomIV = {
+        let image = CustomIV()
         image.backgroundColor = .lightGray
         image.contentMode = .scaleAspectFit
         return image
@@ -62,7 +62,7 @@ class PostCell: UICollectionViewCell {
     
     private func configure() {
         guard let viewModel = viewModel else { return }
-        postImage.imageFromServerURL(viewModel.postImageUrl)
+        postImage.loadImage(urlStr: viewModel.postImageUrl)
     }
     
     required init?(coder: NSCoder) {
