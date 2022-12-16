@@ -9,7 +9,15 @@ A small copy of Instagram made on Firebase
 UIKit, TabBarController, NavigationController, Firebase, IQKeyboardManager, URLSession, NSCache, TableView/CollectionView, AlertController
 
 # Short description
-The project is a copy of Instagram. App uses firebase to fetch and save data. Many instagram functions was made: authentication,follower system, reactions aka likes, upload new posts with captions, change profile picture, comments on posts 
+The project is a copy of Instagram
+App uses firebase to fetch and save data. 
+Many instagram functions was made:
+1) Authentication
+2) Follower system
+3) Likes
+4) Upload new posts with captions
+5) Change profile picture
+6) Comments on posts 
 Architecture pattern used: MVVM
 
 # Future updates
